@@ -63,68 +63,24 @@ public function addthoraxrad(){
 
   for ($i=0; $i < 7; $i++) {
     if ($dt[$i]) {
-      $iddet = $this->db->query('SELECT * FROM det_pemeriksaan where nm_detpemeriksaan = '.'"'.$try[$i].'"');
+      $iddet = $this->db->query('SELECT * FROM det_pemeriksaan as D join pemeriksaan as P where D.nm_detpemeriksaan = '.'"'.$try[$i].'" and P.nmpemeriksaan = "Thorax"');
       $iddet = $iddet->result();
+      var_dump($iddet);
       $data = array(
-          'idObservasi' => $idobs+1,
+          'idObservasi' => $idobs+=1,
           'tglObservasi' => date('Y-m-d'),
-          'id_detpemeriksaan' => $iddet->id_detpemeriksaan,
-          'idPemeriksaan' => $iddet->idPemeriksaan,
+          'id_detpemeriksaan' => $iddet[0]->id_detpemeriksaan,
+          'idPemeriksaan' => $iddet[0]->idPemeriksaan,
           'idPerawat' => $this->session->userdata('Id'),
           'idDokter' => 'SMG',
           'idPasien' => $this->input->post('pasien'),
           'pemeriksaan_ke' => (int)$cekprk+1
         );
           // var_dump($data);
+          $this->M_inputrad->addthorax($data);
     }
   }
-  $this->M_inputrad->addthorax($data, $total);
     redirect('/');
-
-  // if ($this->input->post('Bentuk')) {
-  //   $iddet = $this->db->query('SELECT id_detpemeriksaan, idPemeriksaan FROM det_pemeriksaan where nm_detpemeriksaan = "Bentuk"');
-  //
-  //   $data = array(
-  //     'idObservasi' => $idobs+1,
-  //     'tglObservasi' => date('Y-m-d'),
-  //     'id_detpemeriksaan' => $iddet->row()->id_detpemeriksaan,
-  //     'idPemeriksaan' => $iddet->row()->idPemeriksaan,
-  //     'idPerawat' => $this->session->userdata('Id'),
-  //     'idDokter' => 'SMG',
-  //     'idPasien' => $this->input->post('pasien'),
-  //     'pemeriksaan_ke' => (int)$cekprk+1
-  //   );
-  //   $this->M_inputrad->addthorax($data, $total);
-  //   redirect('/');
-  //
-  //   // $idobs+=1
-  // }
-
-  // $total = 0;
-  // $dt = array(
-  //   '0' => $this->input->post('pasien'),
-  //   '1' => $this->input->post('Bentuk'),
-  //   '2' => $this->input->post('Ekspansi'),
-  //   '3' => $this->input->post('Palpasi'),
-  //   '4' => $this->input->post('Perkusi'),
-  //   '5' => $this->input->post('Auskultasi'),
-  //   '6' => $this->input->post('Lainnya'),
-  // );
-  // for ($i=0; $i < count($data); $i++) {
-  //   if($data[$i]){
-  //     $total +=1;
-  //   }
-  // }
-  //
-  // for ($i=0; $i < $total ; $i++) {
-  //   // code...
-  // }
-  //
-  //
-  // // var_dump($total);
-  // //
-  // $this->M_inputrad->addthorax($data, $total);
-  // redirect('/');
 }
 
 public function addleherrad(){
