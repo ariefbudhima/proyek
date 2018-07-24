@@ -1,5 +1,7 @@
 <table class="table table-bordered table-striped table-vcenter js-dataTable-full hema" id="hema">
+
 <thead>
+
     <tr>
         <th class="text-center">No</th>
         <th>Nama Pasien</th>
@@ -22,6 +24,7 @@
     </tr>
 </thead>
 <tbody>
+
     <tr>
         <?php
         $no = 0;

@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
-        <title>Klinik Brimedika Bandung</title>
+        <title>Klinik Brimedika Bandung - <?php echo $title;?></title>
         <!-- Icons -->
         <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
         <link rel="shortcut icon" href="<?php echo base_url();?> assets/img/favicons/favicon.png">
@@ -43,6 +43,13 @@
         <script src="<?php echo base_url();?>assets/js/pages/op_auth_signin.js"></script>
         <script src="<?php echo base_url();?>assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script src="<?php echo base_url();?>assets/js/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+     
         <script src="<?php echo base_url();?>assets/js/pages/be_tables_datatables.js"></script>
     </body>
 </html>

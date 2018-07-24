@@ -30,14 +30,18 @@ var BeTableDatatables = function() {
         });
     };
     var initDataTableB = function() {
-        jQuery('.hema').dataTable({
+        jQuery('.hema').DataTable({
             columnDefs: [ 
 				{ orderable: true, targets: [ 1 ] } ,
 				//{ width: "20%", targets: [ 1 ] },	
 			],
             pageLength: 8,
             lengthMenu: [[5, 8, 15, 20], [5, 8, 15, 20]],
-            autoWidth: true
+            autoWidth: true,
+			 dom: 'Bfrtip',
+			buttons: [
+				'print'
+			]
 			
         });
     };
