@@ -25,7 +25,7 @@
                     <div class="my-1 ">
                         <h2 class="font-w700 text-black mb-10">Laboratorium</h2>
                         <h3 class="h5 text-muted mb-0">
-                           Selamat Datang, <?php echo $this->session->userdata('nama');?> | <?php echo $this->session->userdata('username');?> | <?php echo ucfirst($this->session->userdata('level'));?>
+                           Selamat Datang, <?php echo $this->session->userdata('nama');?> | <?php echo $this->session->userdata('username');?> | <?php echo ucfirst($this->session->userdata('akses'));?>
                         </h3>
                     </div>
 
@@ -34,38 +34,70 @@
                       <form class="" action="<?php echo base_url(); ?>inputLaborat/addserolab" method="post">
                       <div class="row">
                         <div class="col-lg-4">
-                          <?php echo "Pilih Pasien" ?> <br>
-                          <div class="tabelku">
-                            <?php
-                              echo "<select name = 'pasien'>";
-                              foreach ($pasien as $key) {
-                                echo "<option value = '".$key->idPasien."'>".$key->idPasien."</option>>";
-                              }
-                              echo "</select>";
-                             ?>
-                          </div>
-                          <br>
-                          <?php echo "VDRL/syphilis" ?><br>
-                          <div class="tabelku">
-                            <input type="radio" name="Syphilis" value="Normal"> Normal <br>
-                            <input type="radio" name="Syphilis" value="Tidak Normal"> Tidak Normal
-                          </div>
-                          <br>
-                          <?php echo "HbsAg" ?><br>
-                          <div class="tabelku">
-                            <input type="radio" name="HbsAg" value="Normal"> Normal <br>
-                            <input type="radio" name="HbsAg" value="Tidak Normal"> Tidak Normal
-                          </div>
-                          <br>
-                          <?php echo "Widal" ?><br>
-                          <div class="tabelku">
-                            <input type="radio" name="Widal" value="Normal"> Normal <br>
-                            <input type="radio" name="Widal" value="Tidak Normal"> Tidak Normal
-                          <br>
-                        </div>
-                        <br>
-                        <input type="submit" value="Submit" style="text-align : center; position : absolute;"> <br>
+                            <div class="form-group">
+                                <label>Pilih Pasien</label>
+                                <select name="kdPasien" class="form-control">
+                                    <option value=""> - Pilih Pasien -</option>
+                                    <?php
+                                    foreach($pasien as $data):
+                                    ?>
+                                    <option value="<?php echo $data->kdPasien;?>"><?php echo $data->nmPasien;?></option>
+                                    <?php
+                                    endforeach;
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>VDRL/syphilis</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="vdrl"  value="normal">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Normal
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="vdrl"  value="tidak normal">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Tidak Normal
+                                    </label>
+                                </div>    
+                            </div>
+                            <div class="form-group">
+                                <label>HbAsg</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="hbasg"  value="normal">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Normal
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="hbasg"  value="tidak normal">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Tidak Normal
+                                    </label>
+                                </div>    
+                            </div>
+                            <div class="form-group">
+                                <label>Widal</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="widal"  value="normal">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Normal
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="widal"  value="tidak normal">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Tidak Normal
+                                    </label>
+                                </div>    
+                            </div>
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-primary ">Submit</button>
+                            </div>
                     </form>
+                </div>
+                   
     <!-- </div> -->
   </div>
 </div>

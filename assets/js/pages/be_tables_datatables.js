@@ -37,7 +37,7 @@ var BeTableDatatables = function() {
 			],
             pageLength: 8,
             lengthMenu: [[5, 8, 15, 20], [5, 8, 15, 20]],
-            autoWidth: true,
+            autoWidth: false,
 			 dom: 'Bfrtip',
 			buttons: [
 				'print'

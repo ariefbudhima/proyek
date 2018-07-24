@@ -13,11 +13,24 @@
       $query = $this->db->get()->result();
       return $query;
     }
+    public function getDataUrin(){
+      $this->db->select('*');
+      $this->db->from('pasien');
+      $this->db->join('laburin','pasien.kdPasien = laburin.kdPasien');
+      $query = $this->db->get()->result();
+      return $query;
+    }
+    public function getDataSero(){
+      $this->db->select('*');
+      $this->db->from('pasien');
+      $this->db->join('labsero','pasien.kdPasien = labsero.kdPasien');
+      $query = $this->db->get()->result();
+      return $query;
+    }
 
     public function addhema($data){
       $this->db->select('Max(idHema)+1 as id');
       $q = $this->db->get('labhema')->row()->id;
-      print_r($data);
       if($q == NULL){
         $id = 0;
 				$input = array(
@@ -67,12 +80,81 @@
     }
 
     public function addurin($data){
-      $this->db->insert('laburin', $data);
+      $this->db->select('Max(idUrin)+1 as id');
+      $q = $this->db->get('laburin')->row()->id;
+      if($q == NULL){
+        $id = 0;
+				$input = array(
+					'idUrin' => $id+1,
+					'kdPasien' => $data['kdPasien'],
+					'warna' => $data['warna'],
+					'jernih' => $data['jernih'],
+					'bj' => $data['bj'],
+					'ph' => $data['ph'],
+					'protein' => $data['protein'],
+					'glukosa' => $data['glukosa'],
+					'bilirubin' => $data['bilirubin'],
+					'urobilinogen' => $data['urobilinogen'],
+					'nitrit' => $data['nitrit'],
+					'darah' => $data['darah'],
+					'leukosit' => $data['leukosit'],
+					'sEritrosit' => $data['sEritrosit'],
+					'sLeukosit' => $data['sLeukosit'],
+					'sEpitel' => $data['sEpitel'],
+					'kristal' => $data['kristal'],
+        );
+        $this->db->insert('laburin', $input);
+      }
+      else{
+        $input = array(
+					'idUrin' => $q,
+					'kdPasien' => $data['kdPasien'],
+					'warna' => $data['warna'],
+					'jernih' => $data['jernih'],
+					'bj' => $data['bj'],
+					'ph' => $data['ph'],
+					'protein' => $data['protein'],
+					'glukosa' => $data['glukosa'],
+					'bilirubin' => $data['bilirubin'],
+					'urobilinogen' => $data['urobilinogen'],
+					'nitrit' => $data['nitrit'],
+					'darah' => $data['darah'],
+					'leukosit' => $data['leukosit'],
+					'sEritrosit' => $data['sEritrosit'],
+					'sLeukosit' => $data['sLeukosit'],
+					'sEpitel' => $data['sEpitel'],
+					'kristal' => $data['kristal'],
+        );
+        $this->db->insert('laburin', $input);
+      }
     }
 
     public function addsero($data){
-      $this->db->insert('labsero', $data);
-    }
-  }
+			$this->db->select('Max(idSero)+1 as id');
+      $q = $this->db->get('labsero')->row()->id;
+      if($q == NULL){
+				$id = 0;
+				$input = array(
+					'idSero' => $id+1,
+					'kdPasien' => $data['kdPasien'],
+					'vdrl' => $data['vdrl'],
+					'hbasg' => $data['hbasg'],
+					'widal' => $data['widal']
+					
+				);
+				$this->db->insert('labsero', $input);
+			}
+			else{
+				$input = array(
+					'idSero' => $q,
+					'kdPasien' => $data['kdPasien'],
+					'vdrl' => $data['vdrl'],
+					'hbasg' => $data['hbasg'],
+					'widal' => $data['widal']
+				);
+				$this->db->insert('labsero', $input);
+			}
+	}
+}
 
  ?>

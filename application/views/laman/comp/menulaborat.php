@@ -39,7 +39,7 @@
                 <li>
                 <a class="nav-submenu" data-toggle="nav-submenu" href="#">Manajemen Serologi</a>
                     <ul>
-                        <li><a href="<?php echo base_url();?>inputLaborat/dataurinalis">Lihat Data Serologi</a></li>
+                        <li><a href="<?php echo base_url();?>inputLaborat/dataserologi">Lihat Data Serologi</a></li>
                         <li><a href="<?php echo base_url(); ?>inputLaborat/inputlaboratsero">Tambah Serologi</a></li>
                     </ul>
                   

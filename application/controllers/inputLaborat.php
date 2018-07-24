@@ -17,9 +17,17 @@ public function inputlaborathema(){
   $data['pasien'] = $this->M_inputlab->getdatapas();
   $this->laman('laman/laboratorium/v_inputlabHema', $data);
 }
+public function dataurinalis(){
+  $data['urin'] = $this->M_inputlab->getDataUrin();
+  $this->laman('laman/laboratorium/v_dataUrin', $data);
+}
 public function datahema(){
   $data['hema'] = $this->M_inputlab->getDataHema();
   $this->laman('laman/laboratorium/v_dataHema', $data);
+}
+public function dataserologi(){
+  $data['sero'] = $this->M_inputlab->getDataSero();
+  $this->laman('laman/laboratorium/v_dataSero', $data);
 }
 
 public function inputlaboraturin(){
@@ -59,41 +67,40 @@ public function addhemalab(){
 
 public function addurinlab(){
   $data = array(
-    'idPasien' => $this->input->post('pasien'),
-    'Warna' => $this->input->post('wurin'),
-    'Kejernihan' => $this->input->post('jernihan'),
-    'BJ' => $this->input->post('BJ'),
-    'PH' => $this->input->post('pH'),
-    'Protein' => $this->input->post('protein'),
-    'Glukosa' => $this->input->post('glukosa'),
-    'Keton' => $this->input->post('keton'),
-    'Bilirubin' => $this->input->post('bilirubin'),
-    'Urobilinogen' => $this->input->post('urobilinogen'),
-    'Nitrit' => $this->input->post('nitrit'),
-    'Darah' => $this->input->post('darah'),
-    'Lekosit' => $this->input->post('lekosit'),
+    'kdPasien' => $this->input->post('kdPasien'),
+    'warna' => $this->input->post('wurin'),
+    'jernih' => $this->input->post('jernihan'),
+    'bj' => $this->input->post('BJ'),
+    'ph' => $this->input->post('pH'),
+    'protein' => $this->input->post('protein'),
+    'glukosa' => $this->input->post('glukosa'),
+    'keton' => $this->input->post('keton'),
+    'bilirubin' => $this->input->post('bilirubin'),
+    'urobilinogen' => $this->input->post('urobilinogen'),
+    'nitrit' => $this->input->post('nitrit'),
+    'darah' => $this->input->post('darah'),
+    'leukosit' => $this->input->post('leukosit'),
     'sEritrosit' => $this->input->post('sEritrosit'),
-    'sLekosit' => $this->input->post('sLekosit'),
+    'sLeukosit' => $this->input->post('sLeukosit'),
     'sEpitel' => $this->input->post('sEpitel'),
-    'Kristal' => $this->input->post('kristal')
+    'kristal' => $this->input->post('kristal')
   );
 
   $this->M_inputlab->addurin($data);
-  // $data['idPasien'] = $this->input->post('protein');
-  // $this->load->view('laman/v_dashboard', $data); redirect ke model
-  redirect('/');
+
+  redirect('inputLaborat/dataurinalis');
 }
 
 public function addserolab(){
   $data = array(
-    'idPasien' => $this->input->post('pasien'),
-    'Syphilis' => $this->input->post('Syphilis'),
-    'HbsAg' => $this->input->post('HbsAg'),
-    'Widal' => $this->input->post('Widal')
+    'kdPasien' => $this->input->post('kdPasien'),
+    'vdrl' => $this->input->post('vdrl'),
+    'hbasg' => $this->input->post('hbasg'),
+    'widal' => $this->input->post('widal')
   );
 
   $this->M_inputlab->addsero($data);
-  redirect('/');
+  redirect('inputLaborat/dataserologi');
 }
 
 }

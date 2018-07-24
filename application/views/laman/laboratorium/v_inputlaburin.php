@@ -25,7 +25,7 @@
                     <div class="my-1 ">
                         <h2 class="font-w700 text-black mb-10">Laboratorium</h2>
                         <h3 class="h5 text-muted mb-0">
-                           Selamat Datang, <?php echo $this->session->userdata('nama');?> | <?php echo $this->session->userdata('username');?> | <?php echo ucfirst($this->session->userdata('level'));?>
+                           Selamat Datang, <?php echo $this->session->userdata('nama');?> | <?php echo $this->session->userdata('username');?> | <?php echo ucfirst($this->session->userdata('akses'));?>
                         </h3>
                     </div>
 
@@ -36,124 +36,227 @@
 
         </div>
         <div class="col-lg-6">
-          <h4>URINALIS</h4>
+            <div class="row">
+                <h4>URINALIS</h4>
+            </div>
         </div>
           <!-- action ke controller yang seharusnya untuk menginputkan data dan akan memanggil model yang bersangkutan -->
         <form action="<?php echo base_url();?>inputLaborat/addurinlab" method="post" class="col-lg-12">
           <div class="row">
             <div class="col-lg-4">
-              <?php echo "Pilih Pasien" ?> <br>
-              <div class="tabelku">
-                <?php
-                  echo "<select name = 'pasien'>";
-                  foreach ($pasien as $key) {
-                    echo "<option value = '".$key->idPasien."'>".$key->idPasien."</option>>";
-                  }
-                  echo "</select>";
-                 ?>
-                 <br> <br>
-              </div>
+                <div class="form-group">
+                    <label>Pilih Pasien</label>
+                    <select name="kdPasien" class="form-control">
+                        <option value=""> - Pilih Pasien -</option>
+                        <?php
+                        foreach($pasien as $data):
+                        ?>
+                        <option value="<?php echo $data->kdPasien;?>"><?php echo $data->nmPasien;?></option>
+                        <?php
+                        endforeach;
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Warna Urin</label>    
+                    <select class="form-control" name="wurin">
+                        <option value="">- Pilih Warna Urin - </option>
+                        <option value="putih">Putih</option>
+                        <option value="bening">Bening</option>
+                        <option value="kuning">Kuning Pucat</option>
+                        <option value="hijau">Hijau</option>
+                        <option value="coklat">Coklat</option>
+                        <option value="biru">Biru</option>
+                        <option value="hitam">Hitam</option>
+                        <option value="berbusa">Berbusa</option>
+                        <option value="kemerahan">Kemerahan</option>
+                     </select>
+                </div>
 
+                 <div class="form-group">
+                    <label>Kejernihan</label>   
+                    <select class="form-control" name="jernihan" >
+                        <option value="jernih">Jernih</option>
+                        <option value="keruh">Keruh</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>BJ</label>  
+                    <input type="text" name="BJ" class="form-control">
+                </div>    
+                <div class="form-group">
+                    <label>pH</label>  
+                    <input type="text" name="pH"  class="form-control"> 
+                </div>
 
-            <?php echo "Warna Urin" ?> <br>
-            <select class="tabelku" name="wurin">
-              <option value="putih">Putih</option>
-              <option value="bening">Bening</option>
-              <option value="kuning">Kuning Pucat</option>
-              <option value="hijau">Hijau</option>
-              <option value="coklat">Coklat</option>
-              <option value="biru">Biru</option>
-              <option value="hitam">Hitam</option>
-              <option value="berbusa">Berbusa</option>
-              <option value="kemerahan">Kemerahan</option>
-            </select>
-          <br> <br>
-
-            <?php echo "Kejernihan" ?> <br>
-            <select class="tabelku" name="jernihan" >
-              <option value="jernih">Jernih</option>
-              <option value="keruh">Keruh</option>
-            </select>
-            <br> <br>
-
-            <?php echo "BJ" ?> <br>
-            <input type="text" name="BJ" class="tabelku"> <br>
-            <?php echo "pH" ?> <br>
-            <input type="text" name="pH"  class="tabelku"> <br> <br>
-            <?php echo "Protein" ?> <br>
-            <div class="tabelku">
-                <input type="radio" name="protein" value="positif"> Positif <br>
-                <input type="radio" name="protein" value="negatif"> Negatif <br>
-                <br>
-            </div>
-            <div class="tabelku">
-                <?php echo "Glukosa" ?><br>
-                  <input type="radio" name="glukosa" value="positif"> Positif <br>
-                  <input type="radio" name="glukosa" value="negatif"> Negatif <br>
-                  <br>
-              </div>
-            </div>
+                <div class="form-group">
+                    <label>Protein</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="protein" id="exampleRadios1" value="positif">
+                        <label class="form-check-label" for="exampleRadios1">
+                            Positif
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="protein" id="exampleRadios1" value="negatif">
+                        <label class="form-check-label" for="exampleRadios1">
+                            Negatif
+                        </label>
+                    </div>    
+                </div>
+                <div class="form-group">
+                    <label>Glukosa</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="glukosa"  value="positif">
+                        <label class="form-check-label" for="exampleRadios1">
+                            Positif
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="glukosa"  value="negatif">
+                        <label class="form-check-label" for="exampleRadios1">
+                            Negatif
+                        </label>
+                    </div>    
+                </div>
+        </div> 
+           
 
           <div class="col-lg-4">
-            <?php echo "Keton" ?> <br>
-            <div class="tabelku">
-                <input type="radio" name="keton" value="positif"> Positif <br>
-                <input type="radio" name="keton" value="negatif"> Negatif <br>
-                <br>
+            <div class="form-group">
+                <label>Keton</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="keton" value="positif">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Positif
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="keton"  value="negatif">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Negatif
+                    </label>
+                </div>    
             </div>
-            <?php echo "Bilirubin" ?> <br>
-            <div class="tabelku">
-                <input type="radio" name="bikirubin" value="positif"> Positif <br>
-                <input type="radio" name="bilirubin" value="negatif"> Negatif <br>
-                <br>
+            <div class="form-group">
+                <label>Bilirubin</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="bilirubin" value="positif">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Positif
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="bilirubin"  value="negatif">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Negatif
+                    </label>
+                </div>    
             </div>
-            <?php echo "Urobilinogen" ?> <br>
-            <div class="tabelku">
-                <input type="radio" name="urobilinogen" value="rendah"> Positif <br>
-                <input type="radio" name="urobilinogen" value="normal"> Negatif <br>
-                <input type="radio" name="urobilinogen" value="meningkat"> Meningkat <br>
-                <br>
+            <div class="form-group">
+                <label>Urobilinogen</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="urobilinogen" value="positif">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Positif
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="urobilinogen"  value="negatif">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Negatif
+                    </label>
+                </div>    
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="urobilinogen"  value="meningkat">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Meningkat
+                    </label>
+                </div>    
             </div>
-            <?php echo "Nitrit" ?> <br>
-            <div class="tabelku">
-                <input type="radio" name="nitrit" value="positif"> Positif <br>
-                <input type="radio" name="nitrit" value="negatif"> Negatif <br>
-                <br>
+            <div class="form-group">
+                <label>Nitrit</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="nitrit" value="positif">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Positif
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="nitrit"  value="negatif">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Negatif
+                    </label>
+                </div>    
             </div>
-            <?php echo "Darah" ?> <br>
-            <div class="tabelku">
-                <input type="radio" name="darah" value="positif"> Positif <br>
-                <input type="radio" name="darah" value="negatif"> Negatif <br>
-                <br>
+            <div class="form-group">
+                <label>Darah</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="darah" value="positif">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Positif
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="darah"  value="negatif">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Negatif
+                    </label>
+                </div>    
             </div>
-          </div>
-
-          <br>
+        </div>
           <div class="col-lg-4">
-            <?php echo "Lekosit" ?> <br>
-            <div class="tabelku">
-                <input type="radio" name="lekosit" value="positif"> Positif <br>
-                <input type="radio" name="lekosit" value="negatif"> Negatif <br>
-                <br>
+            <div class="form-group">
+                    <label>Leukosit</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="leukosit" value="positif">
+                        <label class="form-check-label" for="exampleRadios1">
+                            Positif
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="leukosit"  value="negatif">
+                        <label class="form-check-label" for="exampleRadios1">
+                            Negatif
+                        </label>
+                    </div>    
             </div>
-            <?php echo "<strong>Sedimen</strong>" ?> <br>
-            <?php echo "Eritrosit" ?> <br>
-            <input type="text" name="sEritrosit" class="tabelku"> <br>
-            <?php echo "Lekosit" ?> <br>
-            <input type="text" name="sLekosit" class="tabelku"> <br>
-            <?php echo "Epitel" ?> <br>
-            <input type="text" name="sEpitel" class="tabelku"> <br>
-            <?php echo "Kristal" ?> <br>
-            <div class="tabelku">
-                <input type="radio" name="kristal" value="positif"> Positif <br>
-                <input type="radio" name="kristal" value="negatif"> Negatif <br>
+            <div class="form-group">
+                <label>Sedimen</label>
+            </div>
+            <div class="form-group">
+                <label>Eritrosit</label>
+                <input type="text" name="sEritrosit" class="form-control" placeholder="cth: 0-2"> <br>
+            </div>
+            <div class="form-group">
+                <label>Leukosit</label>
+                <input type="text" name="sLeukosit" class="form-control" placeholder="cth: 0-2"> <br>
+            </div>
+            <div class="form-group">
+                <label>Epitel</label>
+                <input type="text" name="sEpitel" class="form-control"> <br>
+            </div>
+            <div class="form-group">
+                <label>Kristal</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="kristal" value="positif">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Positif
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="kristal"  value="negatif">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Negatif
+                    </label>
+                </div>    
             </div>
           </div>
+          <div class="col-lg-12">
+                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+              </div>
           </div>
-
           </div>
-              <br>
-              <input type="submit" value="Submit" style="text-align : center; position : absolute;"> <br>
         </form>
       </div>
     </div>
