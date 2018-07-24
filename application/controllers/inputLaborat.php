@@ -23,14 +23,12 @@ public function datahema(){
 }
 
 public function inputlaboraturin(){
-  $query = $this->M_inputlab->getdatapas();
-  $data['pasien'] = $query->result();
+  $data['pasien'] = $this->M_inputlab->getdatapas();
   $this->laman('laman/laboratorium/v_inputlaburin', $data);
 }
 
 public function inputlaboratsero(){
-  $query = $this->M_inputlab->getdatapas();
-  $data['pasien'] = $query->result();
+  $data['pasien'] = $this->M_inputlab->getdatapas();
   $this->laman('laman/laboratorium/v_inputlabsero', $data);
 }
 

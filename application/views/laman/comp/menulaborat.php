@@ -26,13 +26,23 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(); ?>inputLaborat/inputlaboraturin">Tambah Urinalis</a>
+                <a class="nav-submenu" data-toggle="nav-submenu" href="#">Manajemen Urinalis</a>
+                    <ul>
+                        <li><a href="<?php echo base_url();?>inputLaborat/dataurinalis">Lihat Data Urinalis</a></li>
+                        <li>  <a href="<?php echo base_url(); ?>inputLaborat/inputlaboraturin">Tambah Urinalis</a></li>
+                    </ul>
+                  
                 </li>
                 <!-- <li>
                     <a href="<?php echo base_url(); ?>inputLaborat/inputlaboratpara">Parasitologi</a>
                 </li> -->
                 <li>
-                  <a href="<?php echo base_url(); ?>inputLaborat/inputlaboratsero">Tambah Serologi</a>
+                <a class="nav-submenu" data-toggle="nav-submenu" href="#">Manajemen Serologi</a>
+                    <ul>
+                        <li><a href="<?php echo base_url();?>inputLaborat/dataurinalis">Lihat Data Serologi</a></li>
+                        <li><a href="<?php echo base_url(); ?>inputLaborat/inputlaboratsero">Tambah Serologi</a></li>
+                    </ul>
+                  
                 </li>
 
             </ul>
