@@ -44,31 +44,7 @@
                     </div>
 
                     <div class="block block-fx-shadow px-4 py-4">
-                      <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                              <thead>
-                              <tr>
-                                  <th>Id Pasien</th>
-                                  <th>Nama Pasien</th>
-                                  <th>Umur</th>
-                                  <th>Jenis Kelamin</th>
-                                  <th>Alamat</th>
-                                  <th>Detail</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                                    <?php
-                              foreach ($pasien as $obj) {
-                                  echo "<tr>";
-                                  echo "<td>$obj->kdPasien</td>";
-                                  echo "<td>$obj->nmPasien</td>";
-                                  echo "<td>$obj->umur</td>";
-                                  echo "<td>$obj->gender</td>";
-                                  echo "<td>$obj->Alamat</td>";
-                                  echo "<td><a href='coba/$obj->kdPasien'>Lihat</a></td>";
-                              }
-                              ?>
-                              </tbody>
-                          </table>
+                      <?php $this->load->view('laman/tabel/tbl_pasien');?>
                     </div>
                 </div>
                 <!-- END Page Content -->

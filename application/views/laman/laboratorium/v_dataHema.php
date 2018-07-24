@@ -9,20 +9,7 @@
                         <!-- END Side User -->
 
                         <!-- Side Navigation -->
-                        <?php
-                        if ($this->session->userdata('akses')=='Laborat'){
-                          $this->load->view('laman/comp/menulaborat');
-                        }
-                        elseif ($this->session->userdata('akses')=='Radio') {
-                          $this->load->view('laman/comp/menuradio');
-                        }
-                        elseif ($this->session->userdata('akses')=='Medical') {
-                          $this->load->view('laman/comp/menumedic');
-                        }
-
-                          ?>
-
-
+                        <?php $this->load->view('laman/comp/menulaborat');?>
 
                         <!-- END Side Navigation -->
                     </div>
@@ -30,24 +17,34 @@
             </nav>
     <?php $this->load->view('laman/comp/header');?>
 
-            <!-- Main Container -->
+<!-- Main Container -->
 <!--             <main id="main-container">-->
 
-                <!-- Page Content -->
-                <div class="content">
-                    <div class="my-1 ">
-                        <h2 class="font-w700 text-black mb-10"><?php echo $this->session->userdata('jabatan');?></h2>
-                        <h3 class="h5 text-muted mb-0">
-                           Selamat Datang, <?php echo $this->session->userdata('nama');?> | <?php echo $this->session->userdata('username');?> | <?php echo ucfirst($this->session->userdata('akses'));?>
-                        </h3>
-                        <!-- <?php echo $idPasien ?> -->
+    <!-- Page Content -->
+    <div class="content">
+        <div class="my-1 ">
+            <h2 class="font-w700 text-black mb-10">Laboratorium</h2>
+            <h3 class="h5 text-muted mb-0">
+                Selamat Datang, <?php echo $this->session->userdata('nama');?> | <?php echo $this->session->userdata('username');?> | <?php echo ucfirst($this->session->userdata('akses'));?>
+            </h3>
 
-                    </div>
+        </div>
 
-                    <div class="block block-fx-shadow px-4 py-4 my-5" style="height:25vh;">
-                    <!--Box Start Here-->
+        <div class="block block-fx-shadow px-4 py-4" style="width:max-content;">
+            <!-- <div class="container-fluid"> -->
+        <div class="row">
+            <div class="body col-sm-6">
+                <div class="col-sm-8">
+                    <h4>DATA HEMATOLOGI</h4>
                 </div>
-              </div>
+            </div>
+        </div>
+        <div class="row">
+            <?php $this->load->view('laman/tabel/tbl_hema');?>
+        </div>
+
+  </div>
+</div>
                 <!-- END Page Content -->
 <!--             </main>-->
             <!-- END Main Container -->

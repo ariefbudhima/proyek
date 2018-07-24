@@ -13,19 +13,26 @@
 
 
         <li>
-            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-plus-square"></i><span class="sidebar-mini-hide">Tambah Data Laborat</span></a>
+            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-plus-square"></i><span class="sidebar-mini-hide">Manajemen Laborat</span></a>
             <ul>
                 <li>
-                    <a href="<?php echo base_url();?>inputLaborat/inputlaborathema">Hematologi</a>
+                    <a href="<?php echo base_url();?>inputLaborat/inputlaborathema">Lihat Data Laborat</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(); ?>inputLaborat/inputlaboraturin">Urinalis</a>
+                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">Manajemen Hematologi</a>
+                    <ul>
+                        <li><a href="<?php echo base_url();?>inputLaborat/datahema">Lihat Data Hematologi</a></li>
+                        <li><a href="<?php echo base_url();?>inputLaborat/inputlaborathema">Tambah Hematologi</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>inputLaborat/inputlaboraturin">Tambah Urinalis</a>
                 </li>
                 <!-- <li>
                     <a href="<?php echo base_url(); ?>inputLaborat/inputlaboratpara">Parasitologi</a>
                 </li> -->
                 <li>
-                  <a href="<?php echo base_url(); ?>inputLaborat/inputlaboratsero">Serologi</a>
+                  <a href="<?php echo base_url(); ?>inputLaborat/inputlaboratsero">Tambah Serologi</a>
                 </li>
 
             </ul>

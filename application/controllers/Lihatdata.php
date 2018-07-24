@@ -15,8 +15,7 @@ class lihatdata extends APT_Controller{
 
   public function lookdata(){
     if ($this->session->userdata("masuk")) {
-      $query = $this->M_datapasien->getdatapasien();
-      $data['pasien'] = $query->result();
+      $data['pasien'] = $this->M_datapasien->getdatapasien();
       $this->laman('laman/menu/v_datalaborat', $data);
     }
     else {

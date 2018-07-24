@@ -30,11 +30,15 @@ var BeTableDatatables = function() {
         });
     };
     var initDataTableB = function() {
-        jQuery('.beli').dataTable({
-            columnDefs: [ { orderable: false, targets: [ 4 ] } ],
+        jQuery('.hema').dataTable({
+            columnDefs: [ 
+				{ orderable: true, targets: [ 1 ] } ,
+				//{ width: "20%", targets: [ 1 ] },	
+			],
             pageLength: 8,
             lengthMenu: [[5, 8, 15, 20], [5, 8, 15, 20]],
-            autoWidth: false
+            autoWidth: true
+			
         });
     };
 

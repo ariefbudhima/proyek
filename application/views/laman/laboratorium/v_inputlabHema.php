@@ -25,7 +25,7 @@
                     <div class="my-1 ">
                         <h2 class="font-w700 text-black mb-10">Laboratorium</h2>
                         <h3 class="h5 text-muted mb-0">
-                           Selamat Datang, <?php echo $this->session->userdata('nama');?> | <?php echo $this->session->userdata('username');?> | <?php echo ucfirst($this->session->userdata('level'));?>
+                           Selamat Datang, <?php echo $this->session->userdata('nama');?> | <?php echo $this->session->userdata('username');?> | <?php echo ucfirst($this->session->userdata('akses'));?>
                         </h3>
 
                     </div>
@@ -34,8 +34,6 @@
                       <!-- <div class="container-fluid"> -->
       <div class="body col-sm-6">
         <div class="col-sm-3">
-        </div>
-        <div class="col-sm-3">
           <h4>HEMATOLOGI</h4>
           </div>
         </div>
@@ -43,67 +41,91 @@
         <form action="<?php echo base_url(); ?>inputLaborat/addhemalab" method="post"class="col-lg-12" >
           <div class="row">
             <div class="col-lg-4">
-              <?php echo "Pilih Pasien" ?> <br>
-              <div class="tabelku">
-                <?php
-                  echo "<select name = 'pasien'>";
-                  foreach ($pasien as $key) {
-                    echo "<option value = '".$key->idPasien."'>".$key->idPasien."</option>>";
-                  }
-                  echo "</select>";
-                 ?>
+              <div class="form-group">
+                <label>Pilih Pasien</label>
+                  <select name="kdPasien" class="form-control">
+                    <option value=""> - Pilih Pasien -</option>
+                    <?php
+                      foreach($pasien as $data):
+                    ?>
+                      <option value="<?php echo $data->kdPasien;?>"><?php echo $data->nmPasien;?></option>
+                    <?php
+                      endforeach;
+                    ?>
+                  </select>
               </div>
                <!-- <br> -->
-            <?php echo "Hemoglobin" ?> <br>
-            <input type="text" name="hemoglobin" class="tabelku"> <br>
-            <?php echo "Eritrosit" ?> <br>
-            <input type="text" name="Eritrosit" class="tabelku"> <br>
-            <?php echo "Hematokrit" ?> <br>
-            <input type="text" name="Hematokrit" class="tabelku"> <br>
-            <?php echo "Lekosit" ?> <br>
-            <input type="text" name="Lekosit" class="tabelku"> <br>
-            <?php echo "Laju Endap Darah" ?> <br>
-            <input type="text" name="LajuEndap"  class="tabelku"> <br>
+               <div class="form-group">        
+                <label>Hemoglobin</label>
+                <input type="text" name="hemoglobin" class=" form-control">
+               </div> 
+               <div class="form-group">
+                  <label>Eritrosit</label>
+                  <input type="text" name="eritrosit" class="form-control">
+               </div>
+               <div class="form-group">
+                  <label>Hematokrit</label>
+                  <input type="text" name="hematokrit" class="form-control">
+               </div>
+               <div class="form-group">
+                  <label>Lekosit</label>
+                  <input type="text" name="leukosit" class="form-control">
+               </div>
+               <div class="form-group">
+                  <label>Laju Endap Darah</label>
+                  <input type="text" name="laju" class="form-control">
+               </div>
             </div>
 
             <div class="col-lg-4">
-            <?php echo "Thrombosit" ?><br>
-            <input type="text" name="Thrombosit" class="tabelku"><br>
-            <?php echo "MCV" ?> <br>
-            <input type="text" name="MCV" class="tabelku"> <br>
-            <?php echo "MCH" ?> <br>
-            <input type="text" name="MCH" class="tabelku"> <br>
-            <?php echo "MCHC" ?> <br>
-            <input type="text" name="MCHC" class="tabelku"> <br>
-            <?php echo "Basofil" ?> <br>
-            <input type="text" name="Basofil" class="tabelku"> <br>
+               <div class="form-group">
+                  <label>Thrombosit</label>
+                  <input type="text" name="trombosit" class="form-control">
+               </div>
+               <div class="form-group">
+                  <label>MCV</label>
+                  <input type="text" name="mcv" class="form-control">
+               </div>
+               <div class="form-group">
+                  <label>MCH</label>
+                  <input type="text" name="mch" class="form-control">
+               </div>
+               <div class="form-group">
+                  <label>MCHC</label>
+                  <input type="text" name="mchc" class="form-control">
+               </div>
+               <div class="form-group">
+                  <label>Basofil</label>
+                  <input type="text" name="basofil" class="form-control">
+               </div>
             </div>
 
             <div class="col-md-4">
-            <?php echo "Eosinofil" ?> <br>
-            <input type="text" name="Eosinofil" class="tabelku"> <br>
-            <?php echo "Batang" ?> <br>
-            <input type="text" name="Batang" class="tabelku"> <br>
-            <?php echo "Segmen" ?> <br>
-            <input type="text" name="Segmen" class="tabelku"> <br>
-            <?php echo "Limposit" ?> <br>
-            <input type="text" name="Limposit" class="tabelku"> <br>
-            <?php echo "Monosit" ?> <br>
-            <input type="text" name="Monosit" class="tabelku"> <br>
-            </div>
+              <div class="form-group">
+                  <label>Eosinofil</label>
+                  <input type="text" name="eosinofil" class="form-control">
+              </div>
+              <div class="form-group">
+                  <label>Batang</label>
+                  <input type="text" name="batang" class="form-control">
+              </div>
+              <div class="form-group">
+                  <label>Segmen</label>
+                  <input type="text" name="segmen" class="form-control">
+              </div>
+              <div class="form-group">
+                  <label>Limposit</label>
+                  <input type="text" name="limposit" class="form-control">
+              </div>
+              <div class="form-group">
+                  <label>Monosit</label>
+                  <input type="text" name="monosit" class="form-control">
+              </div>
           </div>
-
-          <!-- <div class="col-lg-12"> -->
-            <!-- <div class="col-lg-4">
-            </div> -->
-            <div class="col-lg-6">
-              <br>
-              <input type="submit" value="Submit" style="text-align : center; position : absolute;"> <br>
+            <div class="col-lg-12">
+              <button type="submit" class="btn btn-primary pull-right">Submit</button>
             </div>
-          <!-- </div> -->
         </form>
-      <!-- </div> -->
-    <!-- </div> -->
   </div>
 </div>
                 <!-- END Page Content -->

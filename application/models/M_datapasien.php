@@ -3,7 +3,7 @@ class M_datapasien extends CI_Model{
   public function getdatapasien(){
     $this->db->select('*');
     $this->db->from('pasien');
-    $kue = $this->db->get();
+    $kue = $this->db->get()->result();
     return $kue;
   }
 

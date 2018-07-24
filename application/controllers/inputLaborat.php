@@ -14,9 +14,12 @@ public function index(){
 }
 
 public function inputlaborathema(){
-  $query = $this->M_inputlab->getdatapas();
-  $data['pasien'] = $query->result();
+  $data['pasien'] = $this->M_inputlab->getdatapas();
   $this->laman('laman/laboratorium/v_inputlabHema', $data);
+}
+public function datahema(){
+  $data['hema'] = $this->M_inputlab->getDataHema();
+  $this->laman('laman/laboratorium/v_dataHema', $data);
 }
 
 public function inputlaboraturin(){
@@ -32,26 +35,27 @@ public function inputlaboratsero(){
 }
 
 public function addhemalab(){
-  $data = array(
-    'idPasien' => $this->input->post('pasien'),
-    'hemoglobin' => $this->input->post('hemoglobin'),
-    'eritrosit' => $this->input->post('Eritrosit'),
-    'hematokrit' => $this->input->post('Hematokrit'),
-    'lekosit' => $this->input->post('Lekosit'),
-    'lajuendapdarah' => $this->input->post('LajuEndap'),
-    'thrombosit' => $this->input->post('Thrombosit'),
-    'MCV' => $this->input->post('MCV'),
-    'MCH' => $this->input->post('MCH'),
-    'MCHC' => $this->input->post('MCHC'),
-    'basofil' => $this->input->post('Basofil'),
-    'eosinofil' => $this->input->post('Eosinofil'),
-    'batang' => $this->input->post('Batang'),
-    'segmen' => $this->input->post('Segmen'),
-    'limposit' => $this->input->post('Limposit'),
-    'monosit' => $this->input->post('Monosit')
-  );
+
+    $data = array(
+      'kdPasien' => $this->input->post('kdPasien'),
+      'hemoglobin' => $this->input->post('hemoglobin'),
+      'eritrosit' => $this->input->post('eritrosit'),
+      'hematokrit' => $this->input->post('hematokrit'),
+      'leukosit' => $this->input->post('leukosit'),
+      'laju' => $this->input->post('laju'),
+      'trombosit' => $this->input->post('trombosit'),
+      'mcv' => $this->input->post('mcv'),
+      'mch' => $this->input->post('mch'),
+      'mchc' => $this->input->post('mchc'),
+      'basofil' => $this->input->post('basofil'),
+      'eosinofil' => $this->input->post('eosinofil'),
+      'batang' => $this->input->post('batang'),
+      'segmen' => $this->input->post('segmen'),
+      'limposit' => $this->input->post('limposit'),
+      'monosit' => $this->input->post('monosit')
+    );
   $this->M_inputlab->addhema($data);
-  redirect('/');
+  redirect('inputLaborat/datahema');
 
 }
 
