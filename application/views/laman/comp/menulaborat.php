@@ -15,9 +15,6 @@
         <li>
             <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-plus-square"></i><span class="sidebar-mini-hide">Manajemen Laborat</span></a>
             <ul>
-                <!-- <li>
-                    <a href="<?php echo base_url();?>inputLaborat/inputlaborathema">Lihat Data Laborat</a>
-                </li> -->
                 <li>
                     <a class="nav-submenu" data-toggle="nav-submenu" href="#">Manajemen Hematologi</a>
                     <ul>

@@ -15,6 +15,11 @@ public function index(){
   // $this->load->view('laman/radiologi/v_inputradthorax');
   redirect('Dashboard','refresh');
 }
+public function dataanamnase(){
+  $data['anam'] = $this->M_inputmed->getDataAnam();
+  $this->laman('laman/medical/v_dataAnam', $data);
+}
+
 
 public function inputmedtht(){
   $query = $this->M_inputlab->getdatapas();
@@ -23,8 +28,7 @@ public function inputmedtht(){
 }
 
 public function anamnase(){
-  $query = $this->M_inputlab->getdatapas();
-  $data['pasien'] = $query->result();
+  $data['pasien'] = $this->M_inputlab->getdatapas();
   $this->laman('laman/medical/v_inputmedanamnase', $data);
   // $this->load->view('laman/radiologi/v_inputradthorax');
 }
@@ -43,17 +47,18 @@ public function pemeriksaanmed(){
 
 public function addanamnasemed(){
   $data = array(
-    'idPasien' => $this->input->post('pasien'),
-    'Hepatitis' => $this->input->post('Hepatitis'),
-    'TBC' => $this->input->post('TBC'),
-    'Hipertensi' => $this->input->post('Hipertensi'),
-    'Diabetes' => $this->input->post('Diabetes'),
-    'Alergi' => $this->input->post('Alergi'),
-    'Operasi' => $this->input->post('Operasi'),
-    'Jantung' => $this->input->post('Jantung'),
-    'Inap' => $this->input->post('Inap'),
-    'PTulang' => $this->input->post('ptulang'),
-    'ObatRutin' => $this->input->post('Obat')
+    'kdPasien' => $this->input->post('kdPasien'),
+    'hepatitis' => $this->input->post('hepatitis'),
+    'tbc' => $this->input->post('tbc'),
+    'tbcThn' => $this->input->post('tbcTahun'),
+    'hipertensi' => $this->input->post('hipertensi'),
+    'diabetes' => $this->input->post('diabetes'),
+    'alergi' => $this->input->post('alergi'),
+    'operasi' => $this->input->post('operasi'),
+    'jantung' => $this->input->post('jantung'),
+    'inap' => $this->input->post('inap'),
+    'patah' => $this->input->post('patah'),
+    'obat' => $this->input->post('obat')
   );
   $this->M_inputmed->addanamnase($data);
   redirect('/');

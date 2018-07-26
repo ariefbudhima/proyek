@@ -12,7 +12,11 @@
             <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-plus-square"></i><span class="sidebar-mini-hide">Tambah Data Medical</span></a>
             <ul>
                 <li>
-                    <a href="<?php echo base_url();?>inputMedic/anamnase">Anamnase</a>
+                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">Anamnase</a>
+                    <ul>
+                        <li><a href="<?php echo base_url();?>inputMedic/dataanamnase">Lihat Data Anamnase</a></li>
+                        <li> <a href="<?php echo base_url();?>inputMedic/anamnase">Tambah Anamnase</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="<?php echo base_url(); ?>inputMedic/riwayatkeluarga">Riwayat Penyakit Keluarga</a>
