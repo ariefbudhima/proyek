@@ -27,6 +27,10 @@ public function datapemeriksaan(){
   $data['periksa'] = $this->M_inputmed->getDataPeriksa();
   $this->laman('laman/medical/v_dataPemeriksaan', $data);
 }
+public function datakebiasaan(){
+  $data['biasa'] = $this->M_inputmed->getDataKebiasaan();
+  $this->laman('laman/medical/v_dataKebiasaan', $data);
+}
 
 
 public function inputmedtht(){

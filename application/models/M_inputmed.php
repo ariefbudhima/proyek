@@ -21,6 +21,13 @@
       $query = $this->db->get()->result();
       return $query;
     }
+    public function getDataKebiasaan(){
+      $this->db->select('*');
+      $this->db->from('pasien');
+      $this->db->join('medicalkebiasaan','pasien.kdPasien = medicalkebiasaan.kdPasien');
+      $query = $this->db->get()->result();
+      return $query;
+    }
     public function addanamnase($data){
       $this->db->select('Max(idAnamnase)+1 as id');
       $q = $this->db->get('medicalanamnase')->row()->id;

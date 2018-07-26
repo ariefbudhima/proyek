@@ -35,7 +35,7 @@
                 <li>
                     <a class="nav-submenu" data-toggle="nav-submenu" href="#">Kebiasaan</a>
                     <ul>
-                        <li><a href="<?php echo base_url();?>inputMedic/datapemeriksaan">Lihat Data Kebiasaan</a></li>
+                        <li><a href="<?php echo base_url();?>inputMedic/datakebiasaan">Lihat Data Kebiasaan</a></li>
                         <li>  <a href="<?php echo base_url(); ?>inputMedic/kebiasaanmed">Tambah Kebiasaan</a></li>
                     </ul>
                 </li>
