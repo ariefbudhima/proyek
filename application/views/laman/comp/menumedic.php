@@ -32,6 +32,27 @@
                         <li>  <a href="<?php echo base_url(); ?>inputMedic/pemeriksaanmed">Tambah Pemeriksaan</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">Kebiasaan</a>
+                    <ul>
+                        <li><a href="<?php echo base_url();?>inputMedic/datapemeriksaan">Lihat Data Kebiasaan</a></li>
+                        <li>  <a href="<?php echo base_url(); ?>inputMedic/pemeriksaanmed">Tambah Kebiasaan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">Keadaan Umum</a>
+                    <ul>
+                        <li><a href="<?php echo base_url();?>inputMedic/datapemeriksaan">Lihat Data Keadaan Umum</a></li>
+                        <li>  <a href="<?php echo base_url(); ?>inputMedic/pemeriksaanmed">Tambah Keadaan Umum</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">Keluhan</a>
+                    <ul>
+                        <li><a href="<?php echo base_url();?>inputMedic/datapemeriksaan">Lihat Data Keluhan</a></li>
+                        <li>  <a href="<?php echo base_url(); ?>inputMedic/pemeriksaanmed">Tambah Keluhan</a></li>
+                    </ul>
+                </li>
 
             </ul>
         </li>
