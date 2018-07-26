@@ -147,5 +147,33 @@
       }
     
     }
+    public function insertKebiasaan($data){
+      $this->db->select('Max(idKebiasaan)+1 as id');
+      $q = $this->db->get('medicalkebiasaan')->row()->id;
+      if($q == NULL){
+        $id = 0;
+				$input = array(
+					'idKebiasaan' => $id+1,
+					'kdPasien' => $data['kdPasien'],
+					'olahraga' => $data['olahraga'],
+					'rokok' => $data['rokok'],
+					'kopi' => $data['kopi'],
+					'alkohol' => $data['alkohol']
+					
+				);
+        $this->db->insert('medicalkebiasaan', $input);
+      }else{
+        $input = array(
+					'idKebiasaan' => $q,
+          'kdPasien' => $data['kdPasien'],
+					'olahraga' => $data['olahraga'],
+					'rokok' => $data['rokok'],
+					'kopi' => $data['kopi'],
+					'alkohol' => $data['alkohol']
+				);
+        $this->db->insert('medicalkebiasaan', $input);
+      }
+    
+    }
   }
  ?>

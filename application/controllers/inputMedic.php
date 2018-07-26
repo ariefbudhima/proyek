@@ -50,7 +50,44 @@ public function pemeriksaanmed(){
   $data['pasien'] = $this->M_inputlab->getdatapas();
   $this->laman('laman/medical/v_inputmedpemeriksaan', $data);
 }
+public function kebiasaanmed(){
+  $data['pasien'] = $this->M_inputlab->getdatapas();
+  $this->laman('laman/medical/v_inputmedbiasa', $data);
+}
+public function addkebiasaan(){
 
+  $data = array(
+    'kdPasien' => $this->input->post('kdPasien'),
+
+  );
+  if($this->input->post('olahraga') == "yes"){
+    $data['olahraga'] = $this->input->post('detOR');
+  }
+  else{
+    $data['olahraga'] =  $this->input->post('olahraga');
+  }
+
+  if($this->input->post('rokok') == "yes"){
+    $data['rokok'] = $this->input->post('detRok');
+  }
+  else{
+    $data['rokok'] =  $this->input->post('rokok');
+  }
+  if($this->input->post('kopi') == "yes"){
+    $data['kopi'] = $this->input->post('detKopi');
+  }
+  else{
+    $data['kopi'] =  $this->input->post('kopi');
+  }
+  if($this->input->post('alkohol') == "yes"){
+    $data['alkohol'] = $this->input->post('detAlko');
+  }
+  else{
+    $data['alkohol'] =  $this->input->post('alkohol');
+  }
+  $this->M_inputmed->insertKebiasaan($data);
+  redirect('inputMedic/datakebiasaan');
+}
 public function addanamnasemed(){
   $data = array(
     'kdPasien' => $this->input->post('kdPasien'),
