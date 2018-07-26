@@ -37,7 +37,7 @@
                     <div class="my-1 ">
                         <h2 class="font-w700 text-black mb-10"><?php echo $this->session->userdata('jabatan');?></h2>
                         <h3 class="h5 text-muted mb-0">
-                           Selamat Datang, <?php echo $this->session->userdata('nama');?> | <?php echo $this->session->userdata('username');?> | <?php echo ucfirst($this->session->userdata('level'));?>
+                           Selamat Datang, <?php echo $this->session->userdata('nama');?> | <?php echo $this->session->userdata('username');?> | <?php echo ucfirst($this->session->userdata('akses'));?>
                         </h3>
 
                     </div>
@@ -53,62 +53,156 @@
                         <form class="" action="<?php echo base_url(); ?>inputMedic/addpemeriksaanmed" method="post">
                           <div class="row">
                             <div class="col-lg-4">
-                              <?php echo "Pilih Pasien" ?> <br>
-                              <div class="tabelku">
-                                <?php
-                                  echo "<select name = 'pasien'>";
-                                  foreach ($pasien as $key) {
-                                    echo "<option value = '".$key->idPasien."'>".$key->nmPasien."</option>>";
-                                  }
-                                  echo "</select>";
-                                 ?>
+                              <div class="form-group">
+                                <label>Pilih Pasien</label>
+                                <select name="kdPasien" class="form-control">
+                                    <option value=""> - Pilih Pasien -</option>
+                                    <?php
+                                    foreach($pasien as $data):
+                                    ?>
+                                    <option value="<?php echo $data->kdPasien;?>"><?php echo $data->nmPasien;?></option>
+                                    <?php
+                                    endforeach;
+                                    ?>
+                                </select>
                               </div>
-                              <br>
-                              <?php echo "Tinggi Badan" ?><br>
-                              <input class="tabelku" type="text" name="tinggi" value="">
-                              <br>
-                              <?php echo "Berat Badan" ?><br>
-                              <input class="tabelku" type="text" name="Berat" value="">
-                              <br>
-                              <?php echo "Nadi" ?><br>
-                              <input class="tabelku" type="text" name="Nadi" value="">
-                              <br>
-                              <?php echo "Pernapasan" ?><br>
-                              <input class="tabelku" type="text" name="Pernapasan" value="">
-                              <br>
+                              <div class="form-group">
+                                  <label>Tinggi Badan</label>
+                                  <input class="form-control" type="number" name="tinggi">
+                              </div>
+                              <div class="form-group">
+                                  <label>Berat Badan</label>
+                                  <input class="form-control" type="number" name="berat">
+                              </div>
+                              <div class="form-group">
+                                  <label>Nadi</label>
+                                  <input class="form-control" type="text" name="nadi">
+                              </div>
+                              <div class="form-group">
+                                  <label>Pernapasan</label>
+                                  <input class="form-control" type="text" name="napas">
+                              </div>
                             </div>
 
-                            <div class="col-lg-4">
-                              <?php echo "Tensi" ?><br>
-                              <input class="tabelku" type="text" name="tensi" value="">
-                              <br>
-                              <!-- ini masih belom selesai, bagian form medical checkup bagian d. Pemeriksaan <br> <br> <br> -->
-                              <?php echo "Mata"; ?>
-                              <div class="tabelku" >
-                                <?php echo "Sehari-hari"; ?> <br>
-                                <div class="tabelku">
-                                  <input class="" type="radio" name="Harihari" value="Kacamata"> Kacamata<br>
-                                  <input class="" type="radio" name="Harihari" value="Softlens"> Softlens<br>
-                                  <input class="" type="radio" name="Harihari" value="Tidak"> Tidak Menggunakan Keduanya<br>
+                            <div class="col-lg-8">
+                              <div class="row">
+                                <div class="col-lg-10">  
+                                    <div class="form-group">
+                                        <label>Tensi</label>
+                                        <input class="form-control" type="text" name="tensi">
+                                    </div>
+                                  </div>
                                 </div>
-                                <br>
-                                <!-- <input class="tabelku" type="text" name="Harihari" value=""><br> -->
-                                <?php echo "Ketika Diperiksa"; ?> <br>
-                                <div class="tabelku">
-                                  <input class="" type="radio" name="Periksa" value="Kacamata"> Kacamata<br>
-                                  <input class="" type="radio" name="Periksa" value="Softlens"> Softlens<br>
-                                  <input class="" type="radio" name="Periksa" value="Tidak"> Tidak Menggunakan Keduanya<br>
-                                </div>
-                              </div>
-                              <br>
-                            </div>
-
-                            <div class="col-lg-4">
-                              </div>
+                             <div class="row">
+                              <div class="col-lg-7"> <label> Mata</label></div>
+                             </div>
+                             <div class="row">
+                              <div class="col-lg-6">  <label>Kanan</label></div>
+                              <div class="col-lg-6">  <label>Kiri</label></div>
+                             </div>
+                              <div class="row">
                                 <div class="col-lg-6">
-                                  <br>
-                                  <input type="submit" value="Submit" style="text-align : center; position : absolute;"> <br>
+                                  <div class="form-group">
+                                    <label>Sehari-hari</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="hariankanan"  value="kacamata">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Kacamata
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="hariankanan"  value="softlens">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                        Softlens
+                                        </label>
+                                    </div>    
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="hariankanan"  value="Tidak Menggunakan Keduanya">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                        Tidak Menggunakan Keduanya
+                                        </label>
+                                    </div>    
+                                  </div>
+                              </div> <!--End Of Kanan-->
+                                <div class="col-lg-6">
+                                  <div class="form-group">
+                                    <label>Sehari-hari</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="hariankiri"  value="kacamata">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Kacamata
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="hariankiri"  value="softlens">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                        Softlens
+                                        </label>
+                                    </div>    
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="hariankiri"  value="Tidak Menggunakan Keduanya">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                        Tidak Menggunakan Keduanya
+                                        </label>
+                                    </div>    
+                                  </div>
+                              </div><!--End Of Kiri-->
+                              </div> <!--End Of Row-->
+                              <div class="row">
+                                <div class="col-lg-6">  <label>Ketika Diperiksa</label></div>
                               </div>
+                              <div class="row">
+                              <div class="col-lg-6">
+                                  <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="periksakanan"  value="kacamata">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Kacamata
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="periksakanan"  value="softlens">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                        Softlens
+                                        </label>
+                                    </div>    
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="periksakanan"  value="Tidak Menggunakan Keduanya">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                        Tidak Menggunakan Keduanya
+                                        </label>
+                                    </div>    
+                                  </div>
+                              </div> <!--End Of Kanan-->
+                                <div class="col-lg-6">
+                                  <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="periksakiri"  value="kacamata">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Kacamata
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="periksakiri"  value="softlens">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                        Softlens
+                                        </label>
+                                    </div>    
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="periksakiri"  value="Tidak Menggunakan Keduanya">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                        Tidak Menggunakan Keduanya
+                                        </label>
+                                    </div>    
+                                  </div>
+                              </div><!--End Of Kiri-->
+                              </div>
+                              
+                             </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-primary ">Submit</button>
+                          </div>
                             </div>
                         </form>
 
