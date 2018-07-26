@@ -17,14 +17,14 @@ public function index(){
 
 public function inputradthorax(){
   $query = $this->M_inputlab->getdatapas();
-  $data['pasien'] = $query->result();
+  $data['pasien'] = $query;
   $this->laman('laman/radiologi/v_inputradthorax', $data);
   // $this->load->view('laman/radiologi/v_inputradthorax');
 }
 
 public function inputradabdomen(){
-  $query = $this->M_inputlab->getdatapas();
-  $data['pasien'] = $query->result();
+  // $query = $this->M_inputlab->getdatapas();
+  $data['pasien'] = $this->M_inputlab->getdatapas();
   $this->laman('laman/radiologi/v_inputradabdomen', $data);
 }
 
@@ -36,56 +36,28 @@ public function inputradleher(){
 
 public function inputradneuro(){
   $query = $this->M_inputlab->getdatapas();
-  $data['pasien'] = $query->result();
+  $data['pasien'] = $query;
   $this->laman('laman/radiologi/v_inputradneurologi', $data);
 }
 
 public function addthoraxrad(){
-  $idobs = $this->db->query('SELECT * FROM observasi');
-  $idobs = $idobs->num_rows();
-  $cekprk = $this->db->query('SELECT MAX(pemeriksaan_ke) from observasi where idPasien ='.'"'.$this->input->post('pasien').'"');
-  $cekprk = $cekprk->result();
-  if (!$cekprk) {
-    $cekprk =0;
-  }
-
-  $try = ['Bentuk','Ekspansi','Palpasi','Perkusi','Auskultasi','Lainnya'];
-
-  $dt = array(
-    '0' => $this->input->post('pasien'),
-    '1' => $this->input->post('Bentuk'),
-    '2' => $this->input->post('Ekspansi'),
-    '3' => $this->input->post('Palpasi'),
-    '4' => $this->input->post('Perkusi'),
-    '5' => $this->input->post('Auskultasi'),
-    '6' => $this->input->post('Lainnya'),
+  $data = array(
+    'kdPasien' => $this->input->post('pasien'),
+    'Bentuk' => $this->input->post('Bentuk'),
+    'Ekspansi' => $this->input->post('Ekspansi'),
+    'Palpasi' => $this->input->post('Palpasi'),
+    'Perkusi' => $this->input->post('Perkusi'),
+    'Auskultasi' => $this->input->post('Auskultasi'),
+    'Lain' => $this->input->post('Lainnya'),
   );
-
-  for ($i=0; $i < 7; $i++) {
-    if ($dt[$i]) {
-      $iddet = $this->db->query('SELECT * FROM det_pemeriksaan as D join pemeriksaan as P where D.nm_detpemeriksaan = '.'"'.$try[$i].'" and P.nmpemeriksaan = "Thorax"');
-      $iddet = $iddet->result();
-      var_dump($iddet);
-      $data = array(
-          'idObservasi' => $idobs+=1,
-          'tglObservasi' => date('Y-m-d'),
-          'id_detpemeriksaan' => $iddet[0]->id_detpemeriksaan,
-          'idPemeriksaan' => $iddet[0]->idPemeriksaan,
-          'idPerawat' => $this->session->userdata('Id'),
-          'idDokter' => 'SMG',
-          'idPasien' => $this->input->post('pasien'),
-          'pemeriksaan_ke' => (int)$cekprk+1
-        );
-          // var_dump($data);
-          $this->M_inputrad->addthorax($data);
-    }
-  }
+            // var_dump($data);
+    $this->M_inputrad->addthorax($data);
     redirect('/');
 }
 
 public function addleherrad(){
   $data = array(
-    'IdPasien' => $this->input->post('pasien'),
+    'kdPasien' => $this->input->post('pasien'),
     'leher' => $this->input->post('LNormal')
   );
 
@@ -95,7 +67,7 @@ public function addleherrad(){
 
 public function addthtrad(){
   $data = array(
-    'idPasien' => $this->input->post('pasien'),
+    'kdPasien' => $this->input->post('pasien'),
     'dtelinga' => $this->input->post('DTelinga'),
     'ltelinga' => $this->input->post('LTelinga'),
     'tympani' => $this->input->post('Tympani'),
@@ -120,7 +92,7 @@ public function addthtrad(){
 
 public function addabdomenrad(){
   $data = array(
-    'idPasien' => $this->input->post('pasien'),
+    'kdPasien' => $this->input->post('pasien'),
     'Bentuk' => $this->input->post('Bentuk'),
     'Palpasi' => $this->input->post('Palpasi'),
     'Hati' => $this->input->post('Hati'),
@@ -137,7 +109,7 @@ public function addabdomenrad(){
 
 public function addneurolograd(){
   $data = array(
-    'idPasien' => $this->input->post('pasien'),
+    'kdPasien' => $this->input->post('pasien'),
     'Fisiologi' => $this->input->post('Fisiologi'),
     'Patologis' => $this->input->post('Patologis'),
     'Motor' => $this->input->post('Motor'),
@@ -152,13 +124,13 @@ public function addneurolograd(){
 
 public function inputradextrim(){
   $query = $this->M_inputlab->getdatapas();
-  $data['pasien'] = $query->result();
+  $data['pasien'] = $query;
   $this->laman('laman/radiologi/v_inputradextrimitas', $data);
 }
 
 public function addextrimrad(){
   $data = array(
-    'idPasien' => $this->input->post('pasien'),
+    'kdPasien' => $this->input->post('pasien'),
     'Tulang' => $this->input->post('Tulang'),
     'Otot' => $this->input->post('Otot'),
     'jtangan' => $this->input->post('jtangan'),
@@ -168,6 +140,33 @@ public function addextrimrad(){
   $this->M_inputrad->addextrim($data);
   redirect('/');
 }
+
+public function dataabdomen(){
+  $data['abdomen'] = $this->M_inputrad->getDataAbdomen();
+  $this->laman('laman/Radiologi/v_dataAbdomen', $data);
+}
+
+public function dataextrim(){
+  $data['extrim'] = $this->M_inputrad->getDataExtrim();
+  $this->laman('laman/Radiologi/v_dataextrimitas', $data);
+}
+
+public function dataneuro(){
+  $data['neuro'] = $this->M_inputrad->getDataNeuro();
+  $this->laman('laman/Radiologi/v_dataneuro', $data);
+}
+
+public function datathorax(){
+  $data['thorax'] = $this->M_inputrad->getDataThorax();
+  $data['leher'] = $this->M_inputrad->getDataLeher();
+  $this->laman('laman/Radiologi/v_datathorax', $data);
+}
+
+// public function dataleher(){
+//   $data['leher'] = $this->M_inputrad->getDataLeher();
+//   $this->laman('laman/Radiologi/v_dataLeher', $data);
+// }
+// tabahin controller untuk view data radio lainnya
 
 }
  ?>

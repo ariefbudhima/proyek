@@ -91,6 +91,11 @@ public function addpemeriksaanmed(){
   $this->M_inputmed->addpemeriksaan($data);
   redirect('/');
 }
+
+public function dataabdomen(){
+  $data['abdomen'] = $this->M_inputlab->getDataHema();
+  $this->laman('laman/laboratorium/v_dataHema', $data);
+}
 //
 // public function inputradleher(){
 //   $query = $this->M_inputlab->getdatapas();
