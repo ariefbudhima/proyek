@@ -31,6 +31,10 @@ public function datakebiasaan(){
   $data['biasa'] = $this->M_inputmed->getDataKebiasaan();
   $this->laman('laman/medical/v_dataKebiasaan', $data);
 }
+public function datakeadaanumum(){
+  $data['umum'] = $this->M_inputmed->getDataUmum();
+  $this->laman('laman/medical/v_dataUmum', $data);
+}
 
 
 public function inputmedtht(){
@@ -57,6 +61,10 @@ public function pemeriksaanmed(){
 public function kebiasaanmed(){
   $data['pasien'] = $this->M_inputlab->getdatapas();
   $this->laman('laman/medical/v_inputmedbiasa', $data);
+}
+public function umummed(){
+  $data['pasien'] = $this->M_inputlab->getdatapas();
+  $this->laman('laman/medical/v_inputumum', $data);
 }
 public function addkebiasaan(){
 
@@ -91,6 +99,18 @@ public function addkebiasaan(){
   }
   $this->M_inputmed->insertKebiasaan($data);
   redirect('inputMedic/datakebiasaan');
+}
+
+public function addumum(){
+  $data = array(
+    'kdPasien' => $this->input->post('kdPasien'),
+    'kesan' => $this->input->post('kesan'),
+    'bmi' => $this->input->post('bmi'),
+    'kulit' => $this->input->post('kulit'),
+    'mata' => $this->input->post('mata')
+  );
+  $this->M_inputmed->insertUmum($data);
+  redirect('inputMedic/datakeadaanumum');
 }
 public function addanamnasemed(){
   $data = array(

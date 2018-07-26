@@ -28,6 +28,13 @@
       $query = $this->db->get()->result();
       return $query;
     }
+    public function getDataUmum(){
+      $this->db->select('*');
+      $this->db->from('pasien');
+      $this->db->join('medicalumum','pasien.kdPasien = medicalumum.kdPasien');
+      $query = $this->db->get()->result();
+      return $query;
+    }
     public function addanamnase($data){
       $this->db->select('Max(idAnamnase)+1 as id');
       $q = $this->db->get('medicalanamnase')->row()->id;
@@ -179,6 +186,34 @@
 					'alkohol' => $data['alkohol']
 				);
         $this->db->insert('medicalkebiasaan', $input);
+      }
+    
+    }
+    public function insertUmum($data){
+      $this->db->select('Max(idUmum)+1 as id');
+			$q = $this->db->get('medicalumum')->row()->id;
+		  if($q == NULL){
+        $id = 0;
+				$input = array(
+					'idUmum' => $id+1,
+					'kdPasien' => $data['kdPasien'],
+					'kesan' => $data['kesan'],
+					'bmi' => $data['bmi'],
+					'kulit' => $data['kulit'],
+					'mata' => $data['mata']
+					
+				);
+        $this->db->insert('medicalumum', $input);
+      }else{
+        $input = array(
+					'idUmum' => $q,
+          'kdPasien' => $data['kdPasien'],
+					'kesan' => $data['kesan'],
+					'bmi' => $data['bmi'],
+					'kulit' => $data['kulit'],
+					'mata' => $data['mata']
+				);
+        $this->db->insert('medicalumum', $input);
       }
     
     }

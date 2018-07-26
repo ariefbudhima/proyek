@@ -42,8 +42,8 @@
                 <li>
                     <a class="nav-submenu" data-toggle="nav-submenu" href="#">Keadaan Umum</a>
                     <ul>
-                        <li><a href="<?php echo base_url();?>inputMedic/datapemeriksaan">Lihat Data Keadaan Umum</a></li>
-                        <li>  <a href="<?php echo base_url(); ?>inputMedic/pemeriksaanmed">Tambah Keadaan Umum</a></li>
+                        <li><a href="<?php echo base_url();?>inputMedic/datakeadaanumum">Lihat Data Keadaan Umum</a></li>
+                        <li>  <a href="<?php echo base_url(); ?>inputMedic/umummed">Tambah Keadaan Umum</a></li>
                     </ul>
                 </li>
                 <li>
