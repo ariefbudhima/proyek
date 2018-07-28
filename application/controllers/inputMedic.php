@@ -35,6 +35,10 @@ public function datakeadaanumum(){
   $data['umum'] = $this->M_inputmed->getDataUmum();
   $this->laman('laman/medical/v_dataUmum', $data);
 }
+public function datakeluhan(){
+  $data['keluh'] = $this->M_inputmed->getDataKeluhan();
+  $this->laman('laman/medical/v_dataKeluhan', $data);
+}
 
 
 public function inputmedtht(){
@@ -65,6 +69,10 @@ public function kebiasaanmed(){
 public function umummed(){
   $data['pasien'] = $this->M_inputlab->getdatapas();
   $this->laman('laman/medical/v_inputumum', $data);
+}
+public function keluhanmed(){
+  $data['pasien'] = $this->M_inputlab->getdatapas();
+  $this->laman('laman/medical/v_inputkeluhan', $data);
 }
 public function addkebiasaan(){
 
@@ -166,19 +174,9 @@ public function addpemeriksaanmed(){
   $this->M_inputmed->addpemeriksaan($data);
   redirect('inputMedic/datapemeriksaan');
 }
-
-//
-// public function inputradleher(){
-//   $query = $this->M_inputlab->getdatapas();
-//   $data['pasien'] = $query->result();
-//   $this->laman('laman/radiologi/v_inputradleher', $data);
-// }
-//
-// public function inputradneuro(){
-//   $query = $this->M_inputlab->getdatapas();
-//   $data['pasien'] = $query->result();
-//   $this->laman('laman/radiologi/v_inputradneurologi', $data);
-// }
-
+  public function addkeluhan(){
+    $this->M_inputmed->insertKeluhan($_POST);
+    redirect('inputMedic/datakeluhan');
+  }
 }
  ?>

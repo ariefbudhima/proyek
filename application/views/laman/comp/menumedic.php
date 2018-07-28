@@ -49,8 +49,8 @@
                 <li>
                     <a class="nav-submenu" data-toggle="nav-submenu" href="#">Keluhan</a>
                     <ul>
-                        <li><a href="<?php echo base_url();?>inputMedic/datapemeriksaan">Lihat Data Keluhan</a></li>
-                        <li>  <a href="<?php echo base_url(); ?>inputMedic/pemeriksaanmed">Tambah Keluhan</a></li>
+                        <li><a href="<?php echo base_url();?>inputMedic/datakeluhan">Lihat Data Keluhan</a></li>
+                        <li>  <a href="<?php echo base_url(); ?>inputMedic/keluhanmed">Tambah Keluhan</a></li>
                     </ul>
                 </li>
 

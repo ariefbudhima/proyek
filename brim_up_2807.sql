@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2018 at 05:42 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Generation Time: Jul 28, 2018 at 06:06 PM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,169 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `brim`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `det_pemeriksaan`
---
-
-CREATE TABLE `det_pemeriksaan` (
-  `id_detpemeriksaan` int(10) NOT NULL,
-  `nm_detpemeriksaan` varchar(100) NOT NULL,
-  `idPemeriksaan` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `det_pemeriksaan`
---
-
-INSERT INTO `det_pemeriksaan` (`id_detpemeriksaan`, `nm_detpemeriksaan`, `idPemeriksaan`) VALUES
-(0, '', 0),
-(1, 'Riwayat Penyakit Hepatitis A/B/C', 4),
-(2, 'Riwayat Pengobatan TBC (Tahun)', 4),
-(3, 'Hipertensi', 4),
-(4, 'Diabetes Melitus', 4),
-(5, 'Alergi', 4),
-(6, 'Riwayat Rawat Operasi', 4),
-(7, 'Riwayat Penyakit Jantung', 4),
-(8, 'Pengobatan Rawat Inap', 4),
-(9, 'Patah Tulang', 4),
-(10, 'Obat yang Rutin Dikonsumsi', 4),
-(11, 'Riwayat Penyakit Jantung', 5),
-(12, 'Penyakit Darah Tinggi', 5),
-(13, 'Penyakit Kencing Manis', 5),
-(14, 'Penyakit Stroke', 5),
-(15, 'Penyakit Paru/Asma/TBC', 5),
-(16, 'Penyakit Kanker', 5),
-(17, 'Penyakit Gangguan Jiwa', 5),
-(18, 'Penyakit Ginjal', 5),
-(19, 'Penyakit Saluran Cerna', 5),
-(20, 'Penyakit Lainnya ', 5),
-(21, 'Tinggi Badan ', 6),
-(22, 'Berat Badan', 6),
-(23, 'Nadi', 6),
-(24, 'Pernapasan', 6),
-(25, 'Tensi', 6),
-(26, 'Mata', 6),
-(27, 'Olahraga', 7),
-(28, 'Merokok', 7),
-(29, 'Minum Kopi', 7),
-(30, 'Alkohol', 7),
-(31, 'Flu Like Syndrome', 8),
-(32, 'Keluhan Perut', 8),
-(33, 'Sesak', 8),
-(34, 'Haemoroid Grade I/II/III', 8),
-(35, 'Keluhan Kulit', 8),
-(36, 'Sedang Mengandung', 8),
-(37, 'Nyeri Dada', 8),
-(38, 'Keluhan Otot,Tulang Syaraf', 8),
-(39, 'Hernia', 8),
-(40, 'Lainnya', 8),
-(41, 'Kesan Umum', 9),
-(42, 'BMI (Badan Massa Index)', 9),
-(43, 'Kulit', 9),
-(44, 'Mata', 9),
-(45, 'Hemoglobin', 1),
-(46, 'Eritrosit', 1),
-(47, 'Hematokrit', 1),
-(48, 'Leukosit', 1),
-(49, 'Laju Endap Darah', 1),
-(50, 'Thrombosit', 1),
-(51, 'MCV', 1),
-(52, 'MCH', 1),
-(53, 'MCHC', 1),
-(54, 'Basofil', 1),
-(55, 'Eosinofil', 1),
-(56, 'Batang', 1),
-(57, 'Segmen', 1),
-(58, 'Limposit', 1),
-(59, 'Monosit', 1),
-(60, 'Syphilis', 3),
-(61, 'HbsAg', 3),
-(62, 'Widal', 3),
-(63, 'Warna', 2),
-(64, 'Kejernihan', 2),
-(65, 'BJ', 2),
-(66, 'PH', 2),
-(67, 'Protein', 2),
-(68, 'Glukosa', 2),
-(69, 'Keton', 2),
-(70, 'Bilirubin', 2),
-(71, 'Urobilinogen', 2),
-(72, 'Nitrit', 2),
-(73, 'Darah', 2),
-(74, 'Leukosit', 2),
-(75, 'sEritrosit', 2),
-(76, 'sLeukosit', 2),
-(77, 'sEpitel', 2),
-(78, 'Kristal', 2),
-(79, 'Bentuk', 12),
-(80, 'Palpasi/Perkusi', 12),
-(81, 'Hati', 12),
-(82, 'Limpa', 12),
-(83, 'Ginjal', 12),
-(84, 'Rectal', 12),
-(85, 'Hernia', 12),
-(86, 'Hernia', 12),
-(87, 'Haemoroid', 12),
-(88, 'Lainnya', 12),
-(89, 'Leher', 11),
-(90, 'Reflex Fisiologin', 14),
-(91, 'Reflex Patologis', 14),
-(92, 'Kekuatan Motorik', 14),
-(93, 'Kelainan Syaraf Pusat', 14),
-(94, 'Kelainan Syaraf Tepi', 14),
-(95, 'Lidah', 14),
-(96, 'Lainnya', 14),
-(97, 'Bentuk', 10),
-(98, 'Ekspansi', 10),
-(99, 'Palpasi', 10),
-(100, 'Perkusi', 10),
-(101, 'Auskultasi', 10),
-(102, 'Lain', 10),
-(103, 'Daun Telinga', 15),
-(104, 'Lubang Telinga', 15),
-(105, 'Membran Tympani', 15),
-(106, 'Hidung', 15),
-(107, 'Sinus', 15),
-(108, 'Faring', 15),
-(109, 'Tensil', 15),
-(110, 'Lidah', 15),
-(111, 'Gusi', 15),
-(112, 'Gigi', 15),
-(113, 'Karang', 15),
-(114, 'Lubang Gigi', 15),
-(115, 'Tambal Gigi', 15),
-(116, 'Gigi Tanggal', 15),
-(117, 'Gigi Miring', 15),
-(118, 'Radix', 15),
-(119, 'Kelainan Tulang/Syaraf', 13),
-(120, 'Kelainan Otot', 13),
-(121, 'Kelainan Jari Tangan', 13),
-(122, 'Kelainan Jari Kaki', 13),
-(123, 'Lainnya', 13);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `dokter`
---
-
-CREATE TABLE `dokter` (
-  `idDokter` varchar(25) NOT NULL,
-  `nmDokter` varchar(100) NOT NULL,
-  `gender` varchar(15) NOT NULL,
-  `Alamat` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `dokter`
---
-
-INSERT INTO `dokter` (`idDokter`, `nmDokter`, `gender`, `Alamat`) VALUES
-('ADM', 'namanya admin', 'Laki-Laki', 'Bandung'),
-('SMG', 'Sumanang', 'Laki-Laki', 'Bandung');
 
 -- --------------------------------------------------------
 
@@ -293,6 +130,7 @@ CREATE TABLE `medicalanamnase` (
   `kdPasien` int(15) NOT NULL,
   `Hepatitis` varchar(20) DEFAULT NULL,
   `TBC` varchar(20) DEFAULT NULL,
+  `tbcTahun` int(11) DEFAULT NULL,
   `Hipertensi` varchar(20) DEFAULT NULL,
   `Diabetes` varchar(20) DEFAULT NULL,
   `Alergi` varchar(20) DEFAULT NULL,
@@ -304,6 +142,38 @@ CREATE TABLE `medicalanamnase` (
   `tgl` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `medicalanamnase`
+--
+
+INSERT INTO `medicalanamnase` (`idAnamnase`, `kdPasien`, `Hepatitis`, `TBC`, `tbcTahun`, `Hipertensi`, `Diabetes`, `Alergi`, `Operasi`, `Jantung`, `Inap`, `PTulang`, `ObatRutin`, `tgl`) VALUES
+(1, 3, 'A', 'Ya', 2010, 'tidak', 'tidak', 'tidak', 'tidak', 'tidak', 'tidak', 'tidak', 'tidak', '2018-07-26 07:10:20'),
+(2, 1, 'B', 'Tidak', 0, 'ya', 'tidak', 'ya', 'ya', 'ya', 'tidak', 'ya', 'ya', '2018-07-26 07:16:16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `medicalkebiasaan`
+--
+
+CREATE TABLE `medicalkebiasaan` (
+  `idKebiasaan` int(11) NOT NULL,
+  `kdPasien` int(25) NOT NULL,
+  `olahraga` varchar(255) NOT NULL,
+  `rokok` varchar(255) NOT NULL,
+  `kopi` varchar(255) NOT NULL,
+  `alkohol` varchar(255) NOT NULL,
+  `Tgl` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `medicalkebiasaan`
+--
+
+INSERT INTO `medicalkebiasaan` (`idKebiasaan`, `kdPasien`, `olahraga`, `rokok`, `kopi`, `alkohol`, `Tgl`) VALUES
+(1, 1, 'Tidak', '12', '12', '12', '2018-07-26 10:08:54'),
+(2, 2, 'Tidak', 'Tidak', '2', 'Tidak', '2018-07-26 10:23:53');
+
 -- --------------------------------------------------------
 
 --
@@ -313,18 +183,57 @@ CREATE TABLE `medicalanamnase` (
 CREATE TABLE `medicalkeluarga` (
   `idKeluarga` int(11) NOT NULL,
   `kdPasien` int(15) NOT NULL,
-  `Jantung` varchar(20) DEFAULT NULL,
-  `DTinggi` varchar(20) DEFAULT NULL,
-  `Kmanis` varchar(20) DEFAULT NULL,
-  `Stroke` varchar(20) DEFAULT NULL,
-  `Paru` varchar(20) DEFAULT NULL,
-  `Kanker` varchar(20) DEFAULT NULL,
-  `GJiwa` varchar(20) DEFAULT NULL,
-  `Ginjal` varchar(20) DEFAULT NULL,
-  `SCerna` varchar(20) DEFAULT NULL,
-  `Lainnya` varchar(20) DEFAULT NULL,
+  `jantung` varchar(20) DEFAULT NULL,
+  `dTinggi` varchar(20) DEFAULT NULL,
+  `kmanis` varchar(20) DEFAULT NULL,
+  `stroke` varchar(20) DEFAULT NULL,
+  `paru` varchar(20) DEFAULT NULL,
+  `kanker` varchar(20) DEFAULT NULL,
+  `gjiwa` varchar(20) DEFAULT NULL,
+  `ginjal` varchar(20) DEFAULT NULL,
+  `scerna` varchar(20) DEFAULT NULL,
+  `lainnya` varchar(20) DEFAULT NULL,
+  `detLainnya` varchar(120) DEFAULT NULL,
   `tgl` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `medicalkeluarga`
+--
+
+INSERT INTO `medicalkeluarga` (`idKeluarga`, `kdPasien`, `jantung`, `dTinggi`, `kmanis`, `stroke`, `paru`, `kanker`, `gjiwa`, `ginjal`, `scerna`, `lainnya`, `detLainnya`, `tgl`) VALUES
+(1, 2, 'tidak', 'tidak', 'tidak', NULL, 'tidak', 'ya', 'tidak', 'tidak', 'ya', 'Ya', 'ASD', '2018-07-26 08:18:16'),
+(2, 3, 'tidak', 'tidak', 'tidak', NULL, 'ya', 'ya', 'tidak', 'tidak', 'tidak', 'Tidak', '', '2018-07-26 08:19:33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `medicalkeluhan`
+--
+
+CREATE TABLE `medicalkeluhan` (
+  `idKeluhan` int(11) NOT NULL,
+  `kdPasien` int(25) NOT NULL,
+  `flu` varchar(255) DEFAULT NULL,
+  `perut` varchar(255) DEFAULT NULL,
+  `sesak` varchar(255) DEFAULT NULL,
+  `haemoroid` varchar(255) DEFAULT NULL,
+  `kulit` varchar(255) DEFAULT NULL,
+  `mengandung` varchar(255) DEFAULT NULL,
+  `nyeridada` varchar(255) DEFAULT NULL,
+  `otot` varchar(255) DEFAULT NULL,
+  `hernia` varchar(255) DEFAULT NULL,
+  `lainnya` varchar(255) DEFAULT NULL,
+  `Tgl` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `medicalkeluhan`
+--
+
+INSERT INTO `medicalkeluhan` (`idKeluhan`, `kdPasien`, `flu`, `perut`, `sesak`, `haemoroid`, `kulit`, `mengandung`, `nyeridada`, `otot`, `hernia`, `lainnya`, `Tgl`) VALUES
+(1, 1, 'ya', 'ya', 'tidak', 'ya', 'ya', 'ya', 'ya', 'tidak', 'ya', 'tidak', '2018-07-28 16:00:00'),
+(2, 1, 'ya', 'ya', 'tidak', 'ya', 'ya', 'ya', 'ya', 'tidak', 'ya', 'tidak', '2018-07-28 16:01:33');
 
 -- --------------------------------------------------------
 
@@ -335,15 +244,50 @@ CREATE TABLE `medicalkeluarga` (
 CREATE TABLE `medicalpemeriksaan` (
   `idPemeriksaan` int(11) NOT NULL,
   `kdPasien` int(15) NOT NULL,
-  `Tinggi` varchar(20) DEFAULT NULL,
-  `Berat` varchar(20) DEFAULT NULL,
-  `Nadi` varchar(20) DEFAULT NULL,
-  `Pernapasan` varchar(20) DEFAULT NULL,
-  `Tensi` varchar(20) DEFAULT NULL,
-  `Harihari` varchar(20) DEFAULT NULL,
-  `Periksa` varchar(20) DEFAULT NULL,
+  `tinggi` varchar(20) DEFAULT NULL,
+  `berat` varchar(20) DEFAULT NULL,
+  `nadi` varchar(20) DEFAULT NULL,
+  `napas` varchar(20) DEFAULT NULL,
+  `tensi` varchar(20) DEFAULT NULL,
+  `hariankiri` varchar(120) DEFAULT NULL,
+  `hariankanan` varchar(120) NOT NULL,
+  `periksakiri` varchar(120) DEFAULT NULL,
+  `periksakanan` varchar(120) NOT NULL,
   `tgl` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `medicalpemeriksaan`
+--
+
+INSERT INTO `medicalpemeriksaan` (`idPemeriksaan`, `kdPasien`, `tinggi`, `berat`, `nadi`, `napas`, `tensi`, `hariankiri`, `hariankanan`, `periksakiri`, `periksakanan`, `tgl`) VALUES
+(1, 1, '170', '80', 'dummy', 'dummy', 'dummy', 'kacamata', 'kacamata', 'softlens', 'softlens', '2018-07-26 09:04:25'),
+(2, 2, '180', '90', 'dummy', 'dummy', 'dummy', 'Tidak Menggunakan Keduanya', 'Tidak Menggunakan Keduanya', 'Tidak Menggunakan Keduanya', 'Tidak Menggunakan Keduanya', '2018-07-26 09:05:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `medicalumum`
+--
+
+CREATE TABLE `medicalumum` (
+  `idUmum` int(11) NOT NULL,
+  `kdPasien` int(25) NOT NULL,
+  `kesan` varchar(255) NOT NULL,
+  `bmi` varchar(255) NOT NULL,
+  `kulit` varchar(255) NOT NULL,
+  `mata` varchar(255) NOT NULL,
+  `Tgl` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `medicalumum`
+--
+
+INSERT INTO `medicalumum` (`idUmum`, `kdPasien`, `kesan`, `bmi`, `kulit`, `mata`, `Tgl`) VALUES
+(1, 1, 'Tidak Cukup', 'Over Weight', 'Tidak Normal', 'Normal', '2018-07-26 10:41:47'),
+(2, 3, 'Cukup', 'Under Weight', 'Normal', 'Normal', '2018-07-26 10:50:22'),
+(3, 2, 'Cukup', 'Under Weight', 'Normal', 'Tidak Normal', '2018-07-26 10:54:09');
 
 -- --------------------------------------------------------
 
@@ -401,38 +345,6 @@ INSERT INTO `pasien` (`kdPasien`, `nmPasien`, `umur`, `gender`, `Alamat`, `peker
 (2, 'as', 31, 'Laki-laki', 'das', '', '56452'),
 (3, 'nanda', 12, 'Laki-laki', 'Rembang', '', '0982987271'),
 (4, 'Aufa', 24, 'Perempuan', 'Jatinegara', '', '089278734912');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pemeriksaan`
---
-
-CREATE TABLE `pemeriksaan` (
-  `idPemeriksaan` int(10) NOT NULL,
-  `nmPemeriksaan` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pemeriksaan`
---
-
-INSERT INTO `pemeriksaan` (`idPemeriksaan`, `nmPemeriksaan`) VALUES
-(1, 'Hematologi'),
-(2, 'Urinalis'),
-(3, 'Serologi'),
-(4, 'Anamse'),
-(5, 'Riwayat Penyakit Keluarga'),
-(6, 'Pemeriksaan'),
-(7, 'Kebiasaan'),
-(8, 'Keluhan Sekarang'),
-(9, 'Keadaan Umum'),
-(10, 'Thorax '),
-(11, 'Leher'),
-(12, 'Abdomen'),
-(13, 'Extremitas'),
-(14, 'Neurologis'),
-(15, 'THT');
 
 -- --------------------------------------------------------
 
@@ -607,18 +519,6 @@ CREATE TABLE `radiotht` (
 --
 
 --
--- Indexes for table `det_pemeriksaan`
---
-ALTER TABLE `det_pemeriksaan`
-  ADD PRIMARY KEY (`id_detpemeriksaan`);
-
---
--- Indexes for table `dokter`
---
-ALTER TABLE `dokter`
-  ADD PRIMARY KEY (`idDokter`);
-
---
 -- Indexes for table `labhema`
 --
 ALTER TABLE `labhema`
@@ -647,6 +547,13 @@ ALTER TABLE `medicalanamnase`
   ADD KEY `kdPasien` (`kdPasien`);
 
 --
+-- Indexes for table `medicalkebiasaan`
+--
+ALTER TABLE `medicalkebiasaan`
+  ADD PRIMARY KEY (`idKebiasaan`),
+  ADD KEY `FK_biasa` (`kdPasien`);
+
+--
 -- Indexes for table `medicalkeluarga`
 --
 ALTER TABLE `medicalkeluarga`
@@ -654,11 +561,25 @@ ALTER TABLE `medicalkeluarga`
   ADD KEY `kdPasien` (`kdPasien`);
 
 --
+-- Indexes for table `medicalkeluhan`
+--
+ALTER TABLE `medicalkeluhan`
+  ADD PRIMARY KEY (`idKeluhan`),
+  ADD KEY `FK_keluhan` (`kdPasien`);
+
+--
 -- Indexes for table `medicalpemeriksaan`
 --
 ALTER TABLE `medicalpemeriksaan`
   ADD PRIMARY KEY (`idPemeriksaan`),
   ADD KEY `kdPasien` (`kdPasien`);
+
+--
+-- Indexes for table `medicalumum`
+--
+ALTER TABLE `medicalumum`
+  ADD PRIMARY KEY (`idUmum`),
+  ADD KEY `FK_umum` (`kdPasien`);
 
 --
 -- Indexes for table `observasi`
@@ -677,12 +598,6 @@ ALTER TABLE `paket`
 --
 ALTER TABLE `pasien`
   ADD PRIMARY KEY (`kdPasien`);
-
---
--- Indexes for table `pemeriksaan`
---
-ALTER TABLE `pemeriksaan`
-  ADD PRIMARY KEY (`idPemeriksaan`);
 
 --
 -- Indexes for table `perawat`
@@ -741,19 +656,19 @@ ALTER TABLE `radiotht`
 -- AUTO_INCREMENT for table `medicalanamnase`
 --
 ALTER TABLE `medicalanamnase`
-  MODIFY `idAnamnase` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idAnamnase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `medicalkeluarga`
 --
 ALTER TABLE `medicalkeluarga`
-  MODIFY `idKeluarga` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idKeluarga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `medicalpemeriksaan`
 --
 ALTER TABLE `medicalpemeriksaan`
-  MODIFY `idPemeriksaan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPemeriksaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `radioabdomen`
@@ -814,16 +729,34 @@ ALTER TABLE `medicalanamnase`
   ADD CONSTRAINT `medicalanamnase_ibfk_1` FOREIGN KEY (`kdPasien`) REFERENCES `pasien` (`kdPasien`);
 
 --
+-- Constraints for table `medicalkebiasaan`
+--
+ALTER TABLE `medicalkebiasaan`
+  ADD CONSTRAINT `FK_biasa` FOREIGN KEY (`kdPasien`) REFERENCES `pasien` (`kdPasien`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `medicalkeluarga`
 --
 ALTER TABLE `medicalkeluarga`
   ADD CONSTRAINT `medicalkeluarga_ibfk_1` FOREIGN KEY (`kdPasien`) REFERENCES `pasien` (`kdPasien`);
 
 --
+-- Constraints for table `medicalkeluhan`
+--
+ALTER TABLE `medicalkeluhan`
+  ADD CONSTRAINT `FK_keluhan` FOREIGN KEY (`kdPasien`) REFERENCES `pasien` (`kdPasien`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `medicalpemeriksaan`
 --
 ALTER TABLE `medicalpemeriksaan`
   ADD CONSTRAINT `medicalpemeriksaan_ibfk_1` FOREIGN KEY (`kdPasien`) REFERENCES `pasien` (`kdPasien`);
+
+--
+-- Constraints for table `medicalumum`
+--
+ALTER TABLE `medicalumum`
+  ADD CONSTRAINT `FK_umum` FOREIGN KEY (`kdPasien`) REFERENCES `pasien` (`kdPasien`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `radioabdomen`

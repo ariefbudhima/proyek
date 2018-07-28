@@ -35,6 +35,13 @@
       $query = $this->db->get()->result();
       return $query;
     }
+    public function getDataKeluhan(){
+      $this->db->select('*');
+      $this->db->from('pasien');
+      $this->db->join('medicalkeluhan','pasien.kdPasien = medicalkeluhan.kdPasien');
+      $query = $this->db->get()->result();
+      return $query;
+    }
     public function addanamnase($data){
       $this->db->select('Max(idAnamnase)+1 as id');
       $q = $this->db->get('medicalanamnase')->row()->id;
@@ -216,6 +223,82 @@
         $this->db->insert('medicalumum', $input);
       }
     
-    }
+		}
+		public function insertKeluhan($data){
+			print_r($data);
+
+			$this->db->select('Max(idKeluhan)+1 as id');
+      $q = $this->db->get('medicalkeluhan')->row()->id;
+
+
+			$tidak = "tidak";
+			//assign if not checked
+			if(!isset($data['flu'])){
+				$data['flu'] = $tidak;
+			}
+			if(!isset($data['perut'])){
+				$data['perut'] =  $tidak;
+			}
+			if(!isset($data['sesak'])){
+				$data['sesak'] =  $tidak;
+			}
+			if(!isset($data['haemoroid'])){
+				$data['haemoroid'] =  $tidak;
+			}
+			if(!isset($data['kulit'])){
+				$data['kulit'] =  $tidak;
+			}
+			if(!isset($data['mengandung'])){
+				$data['mengandung'] =  $tidak;
+			}
+			if(!isset($data['nyeridada'])){
+				$data['nyeridada'] =  $tidak;
+			}
+			if(!isset($data['otot'])){
+				$data['otot'] =  $tidak;
+			}
+			if(!isset($data['hernia'])){
+				$data['hernia'] =  $tidak;
+			}
+			if($data['lainnya'] == NULL){
+				$data['lainnya'] = $tidak;
+			}
+			if($q == NULL){
+        $id = 0;
+				$input = array(
+					'idKeluhan' => $id+1,
+					'kdPasien' => $data['kdPasien'],
+					'flu' => $data['flu'],
+					'perut' => $data['perut'],
+					'sesak' => $data['sesak'],
+					'haemoroid' => $data['haemoroid'],
+					'kulit' => $data['kulit'],
+					'mengandung' => $data['mengandung'],
+					'nyeridada' => $data['nyeridada'],
+					'otot' => $data['otot'],
+					'hernia' => $data['hernia'],
+					'lainnya' => $data['lainnya']
+					
+				);
+        $this->db->insert('medicalkeluhan', $input);
+      }else{
+        $input = array(
+					'idKeluhan' => $q,
+					'kdPasien' => $data['kdPasien'],
+					'flu' => $data['flu'],
+					'perut' => $data['perut'],
+					'sesak' => $data['sesak'],
+					'haemoroid' => $data['haemoroid'],
+					'kulit' => $data['kulit'],
+					'mengandung' => $data['mengandung'],
+					'nyeridada' => $data['nyeridada'],
+					'otot' => $data['otot'],
+					'hernia' => $data['hernia'],
+					'lainnya' => $data['lainnya']
+				);
+        $this->db->insert('medicalkeluhan', $input);
+      }
+
+		}
   }
  ?>
